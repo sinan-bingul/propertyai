@@ -36,7 +36,7 @@ class OpenAIProvider(LLMProviderInterface):
         accumulated_output = []
         while thinking and iteration <= max_iterations:
             assistant_messages = []
-            function_calls = []
+            function_calls = None
             function_call_output = None
 
             response = await self.client.responses.create(
@@ -58,7 +58,7 @@ class OpenAIProvider(LLMProviderInterface):
                                 thinking = False
 
                 if getattr(item, "type", None) == "function_call":
-                    function_calls.append(item)
+                    function_calls = item
                     for tool in tools:
                         if tool.name == item.name:
                             function_call_output = tool.execute(
