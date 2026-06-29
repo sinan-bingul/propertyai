@@ -1357,6 +1357,7 @@ dependencies = [
     { name = "pyyaml" },
     { name = "qdrant-client" },
     { name = "sqlalchemy" },
+    { name = "tenacity" },
     { name = "tiktoken" },
 ]
 
@@ -1379,6 +1380,7 @@ requires-dist = [
     { name = "pyyaml", specifier = "==6.0.2" },
     { name = "qdrant-client", specifier = ">=1.15.1" },
     { name = "sqlalchemy", specifier = ">=2.0.43" },
+    { name = "tenacity", specifier = ">=9.1.4" },
     { name = "tiktoken", specifier = ">=0.13.0" },
 ]
 
