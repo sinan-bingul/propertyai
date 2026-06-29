@@ -1,27 +1,19 @@
-from pydantic import BaseModel, Field
-from src.interfaces import ToolInterface 
+"""Document search tool exposed to the planning agent.
 
-class DocumentToolInputSchema(BaseModel):  
-    query: str = Field(title="User Search Query", description="The query to search the document for")
+Pydantic AI derives the tool name, description and JSON schema directly from the
+function name, docstring and signature, so no separate interface class is needed.
+"""
 
-class DocumentTool(ToolInterface): 
-    name = "document_search_tool"
-    description = "Search a document for content matching a query."
-    input_schema = DocumentToolInputSchema 
 
-    @staticmethod
-    def execute(query: DocumentToolInputSchema):
-        return {
-            "tool_name": DocumentTool.name,
-            "tool_description": DocumentTool.description, 
-            "tool_output": {
-                "address": "71/38 Shoreline Dr, Rhodes",
-                "building_type": "Townhouse",
-                "purchase_price ($)": "1500000",
-                "purchase_date": "2025-09-23"
-            }
-        }
+def document_search_tool(query: str) -> dict:
+    """Search a document for content matching a query.
 
-if __name__ == "__main__":
-    document_tool = DocumentTool() 
-    print(DocumentTool.input_schema.model_json_schema())
+    Args:
+        query: The query to search the document for.
+    """
+    return {
+        "address": "71/38 Shoreline Dr, Rhodes",
+        "building_type": "Townhouse",
+        "purchase_price ($)": "1500000",
+        "purchase_date": "2025-09-23",
+    }
