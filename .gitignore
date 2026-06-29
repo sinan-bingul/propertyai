@@ -1,0 +1,21 @@
+.env
+
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS / editor / tooling
+.DS_Store
+.vscode/
+.claude/
+
+# Scratch files
+temp.json
+temp.py
+temp_1.py
+temp_image.py
+test_yaml.yaml
+
+# Course data (kept locally, not versioned)
+data/
